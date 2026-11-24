@@ -1,0 +1,104 @@
+/* =====================================================================
+   base.css · Reinicio, tipografía y utilidades generales (mobile-first)
+   DS del sitio: Work Sans en todo, esquinas rectas, marco de 1 px,
+   sin sombras en reposo, una sola curva de movimiento.
+   ===================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--surface-soft);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  /* Zonas seguras de celulares con muesca */
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+           env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+/* Títulos: Work Sans 700. h1 = "section-title" del DS (28 a 40 px), h2 = "card-title" (20 a 24 px) */
+h1, h2, h3 {
+  margin: 0 0 .5em;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -.01em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+h1 { font-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.5rem); }
+h2 { font-size: clamp(1.25rem, 1.15rem + .4vw, 1.5rem); }
+p  { margin: 0 0 1em; }
+a  { color: var(--accent); }
+
+/* Título de sección con la línea morada de 64 × 3 px debajo (parte del estilo, no se quita).
+   Una palabra de acento con <em>. */
+.titulo-seccion { text-wrap: balance; }
+.titulo-seccion::after {
+  content: ""; display: block; width: 64px; height: 3px;
+  margin-top: var(--space-3); background: var(--accent);
+}
+.titulo-seccion em { font-style: normal; color: var(--accent); }
+
+/* Eyebrow: etiqueta pequeña en mayúsculas sobre un título */
+.etiqueta {
+  font-weight: 600; font-size: .75rem; line-height: 1.4;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--accent);
+}
+
+/* Enlace de acción en mayúsculas con subrayado de 1 px (LinkArrow del DS) */
+.enlace-flecha {
+  display: inline-flex; align-items: center; gap: var(--space-2); min-height: var(--tactil);
+  font-weight: 600; font-size: .85rem; letter-spacing: .1em; text-transform: uppercase;
+  text-decoration: none; color: var(--accent);
+}
+.enlace-flecha:hover { text-decoration: underline; text-underline-offset: 6px; }
+.enlace-flecha svg { width: 18px; height: 18px; transition: transform var(--t-fast) var(--ease); }
+.enlace-flecha:hover svg { transform: translateX(4px); }
+.enlace-flecha--atras:hover svg { transform: translateX(-4px); }
+
+/* Códigos, CUP, nombres de archivo */
+.mono { font-family: var(--font-mono); }
+
+.tenue { color: var(--text-muted); }
+small, .pequeno { font-size: .875rem; line-height: 1.5; }
+
+/* El atributo hidden siempre oculta (ninguna regla de display lo puede ganar) */
+[hidden] { display: none !important; }
+
+/* Foco visible para teclado: 2 px, con 3 px de separación */
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+/* Foco puesto por el programa al cambiar de pantalla (h1 y main): no es un control, no lleva anillo */
+h1:focus, main:focus { outline: none; }
+/* La cabecera es fija: lo enfocado no debe quedar tapado por ella */
+html { scroll-padding-top: calc(var(--header-h) + 1rem); }
+
+/* Enlace "Saltar al contenido": invisible hasta que el teclado lo enfoca */
+.saltar {
+  position: absolute; left: var(--space-3); top: -4rem; z-index: 1000;
+  padding: .75rem 1rem; background: var(--btn-bg); color: var(--btn-fg);
+  font-weight: 600; text-decoration: none;
+}
+.saltar:focus { top: var(--space-3); }
+
+/* Solo para lectores de pantalla */
+.solo-lector {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* Logo: se muestra la versión que corresponde al tema */
+.logo { display: block; height: auto; }
+.logo--claro  { display: var(--logo-claro); }
+.logo--marino { display: var(--logo-marino); }
+
+/* Respeta a quien pide menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+

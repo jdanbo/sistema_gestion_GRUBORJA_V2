@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es-GT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>y 30 · Vista del cliente · GRUBORJA (prototipo v2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/componentes.css">
+<link rel="stylesheet" href="../css/patrones.css">
+<link rel="stylesheet" href="../css/shell.css">
+<link rel="stylesheet" href="../css/responsive.css">
+<link rel="stylesheet" href="../css/maqueta.css">
+</head>
+<body data-pantalla="26 y 30 · Vista del cliente" data-vista="vista-cliente">
+<aside class="maq-barra" id="maq-barra" aria-label="Herramientas de la maqueta" data-raiz="../"></aside>
+<div class="app" id="app">
+<div id="marco-slot"></div>
+
+  <header class="marco__barra">
+    <span class="marco__logo" style="margin-right:auto">
+      <img class="logo logo--claro" src="../img/logo-claro.png" alt="GRUBORJA">
+      <img class="logo logo--marino" src="../img/logo-marino.png" alt="GRUBORJA">
+    </span>
+    <span class="tenue pequeno" id="vence-txt"></span>
+    <a class="marco__cuenta" id="cuenta-link" href="29-portal-cliente.html" hidden><span class="marco__usuario"><span class="marco__nombre">Cliente Demo</span><span class="marco__cargo tenue">Mis proyectos</span></span><span class="marco__iniciales" aria-hidden="true">CD</span></a>
+    <button class="tema-btn" type="button"></button>
+  </header>
+  <main class="pagina" id="raiz"></main>
+</div>
+<script src="../js/iconos.js"></script>
+<script src="../js/datos.js"></script>
+<script src="../js/tema.js"></script>
+<script src="../js/marco.js"></script>
+<script src="../js/aviso.js"></script>
+<script src="../js/db.js"></script>
+<script src="../js/estado.js"></script>
+<script src="../js/maqueta.js"></script>
+<script src="../js/comportamientos.js"></script>
+<script src="../js/vistas/comun.js"></script>
+<script src="../js/vistas/cliente.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>

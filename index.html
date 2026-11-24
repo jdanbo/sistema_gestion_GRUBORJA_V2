@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es-GT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Índice · GRUBORJA (prototipo v2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/componentes.css">
+<link rel="stylesheet" href="css/patrones.css">
+<link rel="stylesheet" href="css/shell.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/maqueta.css">
+</head>
+<body data-pantalla="Índice">
+<aside class="maq-barra" id="maq-barra" aria-label="Herramientas de la maqueta" data-raiz=""></aside>
+<div class="app" id="app">
+<div id="marco-slot"></div>
+
+  <main class="indice">
+    <p class="etiqueta">Sistema de gestión GRUBORJA</p>
+    <h1 class="titulo-seccion">Maqueta <em>navegable</em></h1>
+    <p>Maqueta de las 30 pantallas con datos ficticios, con vista de computadora y de celular: cámbiala con el botón «Vista» de la barra negra. No hay base de datos ni reglas: sirve para revisar flujo, textos y prioridades. Están las 30 pantallas, más el menú «Más». En cada pantalla, la barra negra de arriba cambia el <strong>estado</strong> y el <strong>rol</strong> con el que se ve.</p>
+
+    <section class="tarjeta indice__tanda" id="tanda-1">
+      <h2>Tanda 1 · Acceso y personas <span class="chip chip--ok">LISTA PARA REVISAR</span></h2>
+      <ul class="indice__lista">
+        <li><span class="indice__num">1</span><a class="indice__nombre" href="pantallas/01-ingreso.html">Ingreso</a>
+          <span class="indice__estados"><a href="pantallas/01-ingreso.html#estado=error">datos incorrectos</a><a href="pantallas/01-ingreso.html#estado=intentos">demasiados intentos</a><a href="pantallas/01-ingreso.html#estado=conexion">sin conexión</a></span></li>
+        <li><span class="indice__num">2</span><a class="indice__nombre" href="pantallas/02-olvide.html">Olvidé mi contraseña</a>
+          <span class="indice__estados"><a href="pantallas/02-olvide.html#estado=enviado">enlace enviado</a></span></li>
+        <li><span class="indice__num">3</span><a class="indice__nombre" href="pantallas/03-activar.html">Activar cuenta</a>
+          <span class="indice__estados"><a href="pantallas/03-activar.html#estado=restablecer">restablecer</a><a href="pantallas/03-activar.html#estado=debil">contraseña débil</a><a href="pantallas/03-activar.html#estado=vencido">enlace vencido</a><a href="pantallas/03-activar.html#estado=usado">enlace usado</a></span></li>
+        <li><span class="indice__num">4</span><a class="indice__nombre" href="pantallas/04-desactivada.html">Cuenta desactivada</a></li>
+        <li><span class="indice__num">9</span><a class="indice__nombre" href="pantallas/09-mi-cuenta.html">Mi cuenta</a>
+          <span class="indice__estados"><a href="pantallas/09-mi-cuenta.html#estado=guardado">contraseña cambiada</a><a href="pantallas/09-mi-cuenta.html#estado=error">contraseña incorrecta</a></span></li>
+        <li><span class="indice__num">21</span><a class="indice__nombre" href="pantallas/21-usuarios.html">Usuarios</a>
+          <span class="indice__estados"><a href="pantallas/21-usuarios.html#estado=vacio">sin resultados</a><a href="pantallas/21-usuarios.html#rol=equipo">como Equipo (sin permiso)</a></span></li>
+        <li><span class="indice__num">22</span><a class="indice__nombre" href="pantallas/22-persona.html">Persona</a>
+          <span class="indice__estados"><a href="pantallas/22-persona.html#estado=repetido">correo repetido</a><a href="pantallas/22-persona.html#estado=enviada">enviada</a><a href="pantallas/22-persona.html#estado=editar">editar</a><a href="pantallas/22-persona.html#estado=baja">confirmar baja</a><a href="pantallas/22-persona.html#estado=pendiente">pendiente</a><a href="pantallas/22-persona.html#estado=desactivada">desactivada</a></span></li>
+        <li><span class="indice__num">+</span><a class="indice__nombre" href="pantallas/00-mas.html">Menú «Más»</a>
+          <span class="indice__estados"><a href="pantallas/00-mas.html#rol=equipo">como Equipo</a></span></li>
+      </ul>
+    </section>
+
+    <section class="tarjeta indice__tanda" id="tanda-2">
+      <h2>Tanda 2 · Inicio y proyecto <span class="chip chip--ok">LISTA PARA REVISAR</span></h2>
+      <ul class="indice__lista">
+        <li><span class="indice__num">5</span><a class="indice__nombre" href="pantallas/05-hoy.html">Hoy</a>
+          <span class="indice__estados"><a href="pantallas/05-hoy.html#rol=equipo">como Equipo</a><a href="pantallas/05-hoy.html#estado=vacio">todo al día</a></span></li>
+        <li><span class="indice__num">6</span><a class="indice__nombre" href="pantallas/06-proyectos.html">Proyectos</a>
+          <span class="indice__estados"></span></li>
+        <li><span class="indice__num">7</span><a class="indice__nombre" href="pantallas/07-proyecto-nuevo.html">Nuevo proyecto</a>
+          <span class="indice__estados"><a href="pantallas/07-proyecto-nuevo.html#rol=equipo">como Equipo (sin permiso)</a></span></li>
+        <li><span class="indice__num">8</span><a class="indice__nombre" href="pantallas/08-proyecto.html">Proyecto: Resumen</a>
+          <span class="indice__estados"><a href="pantallas/08-proyecto.html#estado=recien">recién creado</a><a href="pantallas/08-proyecto.html#estado=terminado">terminado</a></span></li>
+      </ul>
+    </section>
+    <section class="tarjeta indice__tanda" id="tanda-3">
+      <h2>Tanda 3 · Planos <span class="chip chip--ok">LISTA PARA REVISAR</span></h2>
+      <ul class="indice__lista">
+        <li><span class="indice__num">10</span><a class="indice__nombre" href="pantallas/10-planos.html">INDEX de planos</a>
+          </li>
+        <li><span class="indice__num">11</span><a class="indice__nombre" href="pantallas/11-plano-nuevo.html">Nuevo plano</a>
+          <span class="indice__estados"><a href="pantallas/11-plano-nuevo.html#estado=referencia">lista de referencia</a><a href="pantallas/11-plano-nuevo.html#estado=copia">copiar</a><a href="pantallas/11-plano-nuevo.html#estado=externo">consultor externo</a></span></li>
+        <li><span class="indice__num">12</span><a class="indice__nombre" href="pantallas/12-plano.html">Plano</a>
+          <span class="indice__estados"><a href="pantallas/12-plano.html?c=DEMOPX-MUNES-004">sin emisiones</a><a href="pantallas/12-plano.html?c=DEMOPX-MUNAR-003">anulado</a></span></li>
+        <li><span class="indice__num">13</span><a class="indice__nombre" href="pantallas/13-emision-nueva.html">Nueva emisión</a>
+          <span class="indice__estados"><a href="pantallas/13-emision-nueva.html?c=DEMOPX-MUNES-004">primera emisión</a></span></li>
+      </ul>
+    </section>
+    <section class="tarjeta indice__tanda" id="tanda-4">
+      <h2>Tanda 4 · Hitos y cronograma <span class="chip chip--ok">LISTA PARA REVISAR</span></h2>
+      <ul class="indice__lista">
+        <li><span class="indice__num">14</span><a class="indice__nombre" href="pantallas/14-hitos.html">Hitos del proyecto</a>
+          <span class="indice__estados"><a href="pantallas/14-hitos.html#estado=alerta">solo con alerta</a><a href="pantallas/14-hitos.html#estado=vacio">sin hitos</a></span></li>
+        <li><span class="indice__num">15</span><a class="indice__nombre" href="pantallas/15-hitos-agregar.html">Agregar hitos</a></li>
+        <li><span class="indice__num">16</span><a class="indice__nombre" href="pantallas/16-hito.html">Hito</a>
+          <span class="indice__estados"><a href="pantallas/16-hito.html#estado=mover">aviso de dependencias</a><a href="pantallas/16-hito.html#estado=cierre">cierre bloqueado</a><a href="pantallas/16-hito.html#estado=terminado">terminado</a></span></li>
+        <li><span class="indice__num">17</span><a class="indice__nombre" href="pantallas/17-cronograma.html">Cronograma</a></li>
+        <li><span class="indice__num">18</span><a class="indice__nombre" href="pantallas/18-pendientes.html">Pendientes por persona</a>
+          <span class="indice__estados"><a href="pantallas/18-pendientes.html#estado=uno">una persona</a><a href="pantallas/18-pendientes.html#estado=vacio">sin pendientes</a></span></li>
+      </ul>
+    </section>
+    <section class="tarjeta indice__tanda" id="tanda-5">
+      <h2>Tanda 5 · Minutas y definiciones <span class="chip chip--ok">LISTA PARA REVISAR</span></h2>
+      <ul class="indice__lista">
+        <li><span class="indice__num">19</span><a class="indice__nombre" href="pantallas/19-minutas.html">Minutas</a>
+          <span class="indice__estados"><a href="pantallas/19-minutas.html#estado=nueva">nueva minuta</a><a href="pantallas/19-minutas.html#estado=vacio">sin minutas</a></span></li>
+        <li><span class="indice__num">20</span><a class="indice__nombre" href="pantallas/20-definiciones.html">Definiciones del cliente</a>
+          <span class="indice__estados"><a href="pantallas/20-definiciones.html#estado=nueva">nueva definición</a><a href="pantallas/20-definiciones.html#estado=vacio">sin definiciones</a></span></li>
+      </ul>
+    </section>
+    <section class="tarjeta indice__tanda" id="tanda-6">
+      <h2>Tanda 6 · Administración <span class="chip chip--ok">LISTA PARA REVISAR</span></h2>
+      <ul class="indice__lista">
+        <li><span class="indice__num">23</span><a class="indice__nombre" href="pantallas/23-catalogos.html">Catálogos</a>
+          <span class="indice__estados"><a href="pantallas/23-catalogos.html#estado=disciplinas">disciplinas</a><a href="pantallas/23-catalogos.html#estado=clientes">clientes</a><a href="pantallas/23-catalogos.html#estado=hitos">hitos base</a><a href="pantallas/23-catalogos.html#estado=planos">planos de referencia</a><a href="pantallas/23-catalogos.html#rol=equipo">como Equipo</a></span></li>
+        <li><span class="indice__num">24</span><a class="indice__nombre" href="pantallas/24-historial.html">Historial</a>
+          <span class="indice__estados"><a href="pantallas/24-historial.html#estado=vacio">sin resultados</a></span></li>
+      </ul>
+    </section>
+    <section class="tarjeta indice__tanda" id="tanda-7">
+      <h2>Tanda 7 · Cliente, cronología y tablero <span class="chip chip--ok">LISTA PARA REVISAR</span></h2>
+      <ul class="indice__lista">
+        <li><span class="indice__num">25</span><a class="indice__nombre" href="pantallas/25-compartir.html">Compartir con el cliente</a>
+          <span class="indice__estados"><a href="pantallas/25-compartir.html#estado=creado">enlace creado</a><a href="pantallas/25-compartir.html#estado=vacio">sin enlaces</a><a href="pantallas/25-compartir.html#rol=equipo">como Equipo</a></span></li>
+        <li><span class="indice__num">26</span><a class="indice__nombre" href="pantallas/26-vista-cliente.html">Vista por enlace</a>
+          <span class="indice__estados"><a href="pantallas/26-vista-cliente.html#estado=vencido">enlace vencido</a></span></li>
+        <li><span class="indice__num">27</span><a class="indice__nombre" href="pantallas/27-cronologia.html">Documento cronológico</a></li>
+        <li><span class="indice__num">28</span><a class="indice__nombre" href="pantallas/28-tablero.html">Tablero de oficina</a></li>
+        <li><span class="indice__num">29</span><a class="indice__nombre" href="pantallas/29-portal-cliente.html">Portal del cliente: mis proyectos</a></li>
+        <li><span class="indice__num">30</span><a class="indice__nombre" href="pantallas/26-vista-cliente.html#estado=cuenta">Portal del cliente: proyecto</a></li>
+      </ul>
+    </section>
+    </main>
+</div>
+<script src="js/iconos.js"></script>
+<script src="js/datos.js"></script>
+<script src="js/tema.js"></script>
+<script src="js/marco.js"></script>
+<script src="js/estado.js"></script>
+<script src="js/maqueta.js"></script>
+<script src="js/comportamientos.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

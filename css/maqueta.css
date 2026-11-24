@@ -1,0 +1,38 @@
+/* maqueta.css · SOLO herramientas de revisión de la maqueta (no es parte del diseño) */
+
+/* ---------- Barra de la maqueta (herramienta de revisión: NO es parte del diseño) ---------- */
+.maq-barra {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem;
+  padding: .5rem var(--gutter); background: #111; color: #fff;
+  font: 500 .8125rem/1.3 var(--font-sans);
+}
+.maq-barra a { color: #fff; }
+.maq-barra__marca { font: 600 .75rem/1 var(--font-mono); letter-spacing: .14em; padding: .3rem .5rem; border: 1px solid #fff; }
+.maq-barra__grupo { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem; }
+.maq-barra__grupo > span { color: #bbb; }
+.maq-barra button {
+  min-height: 32px; padding: .25rem .7rem; border: 1px solid #777; border-radius: 999px;
+  background: transparent; color: #fff; font: inherit; cursor: pointer;
+}
+.maq-barra button[aria-pressed="true"] { background: #fff; color: #111; border-color: #fff; }
+
+/* Velo para mostrar un diálogo abierto dentro de la maqueta */
+.maq-velo { position: fixed; inset: 0; z-index: 400; display: flex; align-items: center; justify-content: center; padding: 1rem; background: rgba(13, 19, 48, .6); }
+.maq-velo .dialogo { position: static; margin: 0; }
+/* Índice de la maqueta */
+.indice { max-width: 60rem; margin: 0 auto; padding: var(--space-6) var(--gutter) var(--space-7); }
+.indice__tanda { margin-bottom: var(--space-5); }
+.indice__lista { list-style: none; margin: 0; padding: 0; }
+.indice__lista li { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); padding: var(--space-3) 0; border-bottom: 1px solid var(--line); }
+.indice__lista li:last-child { border-bottom: 0; }
+.indice__num { flex: none; width: 2.25rem; font: 600 .875rem/1 var(--font-mono); color: var(--accent); }
+.indice__nombre { min-width: var(--tactil); font-weight: 600; color: var(--ink); min-height: var(--tactil); display: inline-flex; align-items: center; }
+.indice__estados { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-left: auto; font-size: .8125rem; }
+.indice__estados a { min-width: var(--tactil); justify-content: center; display: inline-flex; align-items: center; min-height: var(--tactil); }
+
+.login { min-height: calc(100dvh - 3rem); }
+
+@container app (max-width: 767px) {
+  .maq-velo { align-items: flex-end; padding: 0; }
+  .maq-velo .dialogo { width: 100%; border-width: 1px 0 0; }
+}

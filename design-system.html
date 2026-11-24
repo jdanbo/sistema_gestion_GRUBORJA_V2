@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es-GT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Design system · GRUBORJA (prototipo v2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/componentes.css">
+<link rel="stylesheet" href="css/patrones.css">
+<link rel="stylesheet" href="css/shell.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/maqueta.css">
+<link rel="stylesheet" href="css/ds.css">
+</head>
+<body data-pantalla="Design system">
+<aside class="maq-barra" id="maq-barra" aria-label="Herramientas de la maqueta" data-raiz=""></aside>
+<div class="app" id="app">
+<div class="ds">
+  <header class="pagina__titulo">
+    <div>
+      <p class="etiqueta">Prototipo v2 · Sistema de gestión GRUBORJA</p>
+      <h1 class="titulo-seccion">Design <em>system</em></h1>
+      <p class="tenue" style="max-width:46rem">Un solo lugar para los colores, la tipografía y los componentes. Las 30 pantallas solo <strong>enlazan</strong> estas piezas: si algo cambia aquí, cambia en todas. Cambia el tema con el botón de la derecha para ver los dos modos.</p>
+    </div>
+    <button class="tema-btn" type="button"></button>
+  </header>
+
+  <nav class="ds__nav" aria-label="Secciones del design system">
+    <a href="#arquitectura">Arquitectura</a><a href="#color">Color</a><a href="#tipografia">Tipografía</a><a href="#espacio">Espacio</a><a href="#acciones">Acciones</a><a href="#formularios">Formularios</a><a href="#estado">Estado y avisos</a><a href="#datos">Datos</a><a href="#navegacion">Navegación</a><a href="#fichas">Fichas y listas</a><a href="#plano">Planos y emisiones</a><a href="#tiempo">Tiempo y avance</a><a href="#capas-ui">Capas y diálogos</a>
+  </nav>
+
+  <section id="arquitectura">
+    <h2>Arquitectura por capas</h2>
+    <p class="ds__nota">Cada capa solo usa lo de las capas de arriba. Así agregar una pantalla o cambiar un color no obliga a tocar todo.</p>
+    <ol class="ds__capas">
+      <li><strong>1 · tokens.css</strong> — colores, espacios, tipografía, radios, tiempos. Dos temas: claro y marino. Aquí se cambia la marca.</li>
+      <li><strong>2 · base.css</strong> — reinicio, títulos, párrafos, enlaces, utilidades (<code>.tenue</code>, <code>.mono</code>, <code>.pequeno</code>).</li>
+      <li><strong>3 · componentes.css</strong> — piezas reutilizables: botón, campo, chip, tabla, aviso… Esta página las muestra todas.</li>
+      <li><strong>4 · patrones.css</strong> — cómo se acomodan en pantalla: rejillas, secciones, cronograma, emisiones.</li>
+      <li><strong>5 · shell.css</strong> — el marco de la app: cabecera y navegación principal.</li>
+      <li><strong>6 · responsive.css</strong> — ajustes de celular (menos de 768 px) y de 320 px.</li>
+      <li><strong>maqueta.css · ds.css</strong> — solo herramientas de revisión y esta documentación. No pasan al sistema real.</li>
+    </ol>
+    <p class="ds__nota" style="margin-top:var(--space-3)">JavaScript, igual por capas: <code>iconos.js</code> (íconos) → <code>datos.js</code> (datos de demostración) → <code>tema.js</code> → <code>marco.js</code> (cabecera) → <code>estado.js</code> (estado y rol) → <code>maqueta.js</code> (barra negra) → <code>comportamientos.js</code> (Mostrar contraseña, selector de secciones…) → <code>app.js</code> (arranque).</p>
+  </section>
+
+  <section id="color">
+    <h2>Color</h2>
+    <p class="ds__nota">Los valores se leen del CSS en vivo. Un solo acento (morado en claro, lila en marino); los estados siempre llevan texto y punto, nunca solo color.</p>
+    <div id="ds-colores"></div>
+    <h3>Contraste medido en el tema actual</h3>
+    <div id="ds-contrastes" style="border:1px solid var(--line);background:var(--surface)"></div>
+  </section>
+
+  <section id="tipografia">
+    <h2>Tipografía</h2>
+    <p class="ds__nota">Work Sans para texto, IBM Plex Mono para códigos (CUP, nombres de archivo). Mínimo 12 px; cuerpo de 16 px.</p>
+    <div class="ds__muestra ds__muestra--col">
+      <h1 class="titulo-seccion" style="margin:0">Título de página <em>con acento</em></h1>
+      <h2 style="margin:0;border:0;padding:0">Título de sección</h2>
+      <h3 style="margin:0">Título de bloque</h3>
+      <p style="margin:0">Texto de cuerpo: lo que se lee de corrido. Líneas de 45 a 75 caracteres, interlineado de 1,5.</p>
+      <p class="tenue pequeno" style="margin:0">Texto tenue y pequeño: metadatos y ayudas (12–13 px, contraste 4,5:1).</p>
+      <p class="etiqueta" style="margin:0">Etiqueta en mayúsculas</p>
+      <p style="margin:0"><span class="mono">DEMOPX-CONAR-001 · V04 · 09NOV26</span> — código en monoespaciada</p>
+    </div>
+  </section>
+
+  <section id="espacio">
+    <h2>Espacio, esquinas y elevación</h2>
+    <div class="ds__muestra ds__muestra--col"><div id="ds-espacio"></div></div>
+    <p class="ds__nota">Esquinas rectas (<code>--radius: 0</code>); solo chips y filtros usan forma de píldora. Sin sombra en reposo: la sombra aparece solo al pasar el cursor sobre una tarjeta clicable.</p>
+    <div class="ds__muestra"><a class="tarjeta tarjeta--enlace" href="#espacio" style="padding:var(--space-4)"><strong>Tarjeta clicable</strong><br><span class="tenue pequeno">Pasa el cursor: se eleva</span></a></div>
+  </section>
+
+  <section id="acciones">
+    <h2>Acciones</h2>
+    <h3>Botones</h3>
+    <div class="ds__muestra">
+      <button class="btn btn--primario" type="button">Principal</button>
+      <button class="btn" type="button">Secundario</button>
+      <button class="btn btn--chico" type="button">Chico</button>
+      <button class="btn btn--grave" type="button">Grave</button>
+      <button class="btn" type="button" disabled>Desactivado</button>
+    </div>
+    <div class="ds__muestra ds__muestra--col ds__ancho"><button class="btn btn--primario btn--bloque" type="button">Bloque a todo el ancho</button></div>
+    <p class="ds__nota">Una sola acción principal por zona. La acción destructiva va separada y con confirmación.</p>
+    <h3>Enlaces y botón de ícono</h3>
+    <div class="ds__muestra">
+      <a class="enlace-flecha" href="#acciones">Ver todos <span data-icono="flecha"></span></a>
+      <a class="enlace-flecha enlace-flecha--atras" href="#acciones"><span data-icono="atras"></span> Proyectos</a>
+      <button class="btn-icono" type="button" aria-label="Copiar nombre"><span data-icono="copiar"></span></button>
+      <button class="tema-btn" type="button"></button>
+    </div>
+    <h3>Acción destructiva separada</h3>
+    <div class="ds__muestra ds__muestra--col ds__ancho"><div class="acciones-peligro" style="margin:0;padding:0;border:0"><p class="tenue pequeno" style="margin:0 0 var(--space-3)">Si algo salió mal, se anula y se registra otra versión. No se borra.</p><button class="btn btn--chico btn--grave" type="button">Anular emisión</button></div></div>
+  </section>
+
+  <section id="formularios">
+    <h2>Formularios</h2>
+    <div class="ds__muestra ds__muestra--col ds__ancho">
+      <label class="campo"><span class="campo__etiqueta">Nombre del proyecto</span><input class="campo__entrada" value="Oficinas Demo Tec" autocomplete="off"><span class="campo__ayuda">Texto de ayuda bajo el campo.</span></label>
+      <label class="campo"><span class="campo__etiqueta">Dirección <span class="campo__opcional">opcional</span></span><input class="campo__entrada" autocomplete="off"></label>
+      <label class="campo"><span class="campo__etiqueta">Contraseña nueva</span><input class="campo__entrada" type="password" value="clave-de-ejemplo" autocomplete="new-password"></label>
+      <p class="ds__nota" style="margin-top:calc(var(--space-2)*-1)">El botón «Mostrar» se agrega solo a todo campo de contraseña.</p>
+      <label class="campo"><span class="campo__etiqueta">Departamento</span><select class="campo__entrada"><option>Guatemala</option><option>Sacatepéquez</option></select></label>
+      <label class="campo"><span class="campo__etiqueta">Motivo del cambio</span><textarea class="campo__entrada" rows="3">Se agregó la señalización del sótano.</textarea></label>
+      <label class="campo"><span class="campo__etiqueta">Código</span><input class="campo__entrada" value="OFI" aria-invalid="true" aria-describedby="ds-err"><span class="campo__error" id="ds-err" role="alert">Ese código ya existe. Prueba con OFITEC.</span></label>
+    </div>
+    <div class="ds__muestra">
+      <label class="casilla casilla--texto" style="margin:0"><input type="checkbox" checked><span class="casilla__marca"></span>Casilla marcada</label>
+      <label class="casilla casilla--texto" style="margin:0"><input type="checkbox"><span class="casilla__marca"></span>Casilla vacía</label>
+      <label class="interruptor"><input type="checkbox" role="switch" checked><span class="interruptor__pista" aria-hidden="true"></span><span class="interruptor__texto">Interruptor activo</span></label>
+      <label class="interruptor"><input type="checkbox" role="switch"><span class="interruptor__pista" aria-hidden="true"></span><span class="interruptor__texto">Interruptor apagado</span></label>
+    </div>
+    <h3>Filtros (píldoras) y opciones de rol</h3>
+    <div class="pills" role="group" aria-label="Ejemplo de filtros"><button class="pill" type="button" aria-pressed="true">Todas <span class="pill__cuenta">14</span></button><button class="pill" type="button" aria-pressed="false">Activas <span class="pill__cuenta">12</span></button><button class="pill" type="button" aria-pressed="false">Pendientes <span class="pill__cuenta">1</span></button></div>
+    <fieldset class="opciones opciones--tres"><legend>Rol</legend>
+      <label class="opcion"><input type="radio" name="ds-rol" checked><span><span class="opcion__titulo">Gerencia</span><span class="opcion__texto">Crea proyectos, anula, administra cuentas.</span></span></label>
+      <label class="opcion"><input type="radio" name="ds-rol"><span><span class="opcion__titulo">Equipo</span><span class="opcion__texto">Trabaja hitos, pasos, planos y minutas.</span></span></label>
+    </fieldset>
+    <h3>Requisitos de contraseña</h3>
+    <ul class="requisitos"><li><span data-icono="punto"></span> Al menos 10 caracteres (llevas 4)</li><li class="cumple"><span data-icono="ok"></span> Letras y números</li></ul>
+  </section>
+
+  <section id="estado">
+    <h2>Estado y avisos</h2>
+    <h3>Chips de estado y etiquetas</h3>
+    <div class="ds__muestra"><span class="chip">ENVIADO</span><span class="chip chip--ok">VIGENTE</span><span class="chip chip--alerta">VENCE 11 NOV</span><span class="chip chip--grave">ATRASADO 3 DÍAS</span><span class="chip chip--acento">RECIBIDO</span><span class="tag">Equipo</span><a class="tag" href="#estado">HITO 04.02</a></div>
+    <h3>Avisos en la página</h3>
+    <div class="aviso aviso--ok" role="status"><strong>Guardado.</strong> La contraseña se cambió.</div>
+    <div class="aviso aviso--alerta"><strong>Revisa las dependencias.</strong> Mover este hito afecta 2 hitos más.</div>
+    <div class="aviso aviso--grave" role="alert"><strong>El archivo no coincide.</strong> La huella no es la registrada.</div>
+    <div class="aviso"><strong>Aviso neutro.</strong> Información sin urgencia.</div>
+    <h3>Regla visible (lo que no se puede) y toasts</h3>
+    <p class="bloqueo"><span data-icono="candado"></span> Emisión sellada: no se edita ni se borra. Solo puede avanzar su estado.</p>
+    <div class="ds__muestra"><div class="toast toast--ok" role="status" style="position:static">Cambios guardados</div><div class="toast toast--error" role="alert" style="position:static">No se pudo guardar</div></div>
+  </section>
+
+  <section id="datos">
+    <h2>Datos</h2>
+    <h3>Cifras (cada una lleva a su lista)</h3>
+    <div class="cifras cifras--cuatro">
+      <a class="cifra" href="#datos"><span class="cifra__numero">4</span><span class="cifra__texto">proyectos activos</span><span class="cifra__ir" data-icono="flecha"></span></a>
+      <a class="cifra cifra--grave" href="#datos"><span class="cifra__numero">3</span><span class="cifra__texto">hitos atrasados</span><span class="cifra__ir" data-icono="flecha"></span></a>
+      <a class="cifra cifra--alerta" href="#datos"><span class="cifra__numero">2</span><span class="cifra__texto">pendientes de cotizar que vencen en 15 días</span><span class="cifra__ir" data-icono="flecha"></span></a>
+      <div class="cifra"><span class="cifra__numero">0</span><span class="cifra__texto">cifra sin enlace</span></div>
+    </div>
+    <h3>Tabla (en celular pasa a tarjetas)</h3>
+    <div class="tabla-caja"><table class="tabla tabla--compacta"><thead><tr><th>CUP</th><th>Título</th><th>Última emisión</th><th>Estado</th></tr></thead><tbody>
+      <tr><td class="celda-titulo" data-label="CUP"><a class="cup" href="#datos">DEMOPX-CONAR-001</a></td><td data-label="Título">Planta conjunto</td><td data-label="Última emisión">28 oct 2026</td><td data-label="Estado"><span class="chip chip--ok">VIGENTE</span></td></tr>
+      <tr><td class="celda-titulo" data-label="CUP"><a class="cup" href="#datos">DEMOPX-CONAR-002</a></td><td data-label="Título">Planta de evacuación</td><td data-label="Última emisión">Hoy</td><td data-label="Estado"><span class="chip">ENVIADO</span></td></tr>
+    </tbody></table></div>
+    <h3>Persona</h3>
+    <div class="ds__muestra"><span class="persona"><span class="persona__nombre">Ana Morales</span><span class="persona__correo">ana@demo.test</span></span></div>
+  </section>
+
+  <section id="navegacion">
+    <h2>Navegación</h2>
+    <p class="ds__nota">La cabecera y la barra inferior son un solo componente (<code>marco.js</code>): las pantallas solo declaran en qué sección están. Mira arriba la barra de la maqueta y, en cualquier pantalla, la cabecera.</p>
+    <h3>Secciones del proyecto: pestañas en escritorio, selector en celular</h3>
+    <nav class="tabs" aria-label="Secciones del proyecto"><a class="tab" href="#navegacion">Resumen</a><a class="tab" href="#navegacion">Hitos <span class="tab__cuenta">1</span></a><a class="tab" aria-current="page" href="#navegacion">Planos</a><a class="tab" href="#navegacion">Minutas</a><a class="tab" href="#navegacion">Cliente <span class="tab__cuenta">1</span></a></nav>
+    <p class="ds__nota">Reduce la ventana a menos de 768 px: las pestañas se reemplazan por un selector «Sección del proyecto» generado desde estas mismas pestañas.</p>
+    <h3>Elemento de menú</h3>
+    <ul class="menu-lista"><li><a class="tarjeta tarjeta--enlace menu-item" href="#navegacion"><span data-icono="usuarios"></span><span><span class="menu-item__titulo">Usuarios</span><span class="menu-item__texto">Quién tiene acceso, con qué rol y en qué estado</span></span></a></li></ul>
+  </section>
+
+  <section id="fichas">
+    <h2>Fichas y listas</h2>
+    <div class="rejilla">
+      <div class="tarjeta seccion"><h2 style="border:0;padding:0">Requiere atención</h2><ul class="filas"><li class="fila"><span class="chip chip--grave">ATRASADO 3 DÍAS</span><span class="fila__que"><a class="fila__titulo" href="#fichas">Estructura metálica: comparar cotizaciones</a><span class="fila__detalle">Hito · <span class="mono">DEMOPX</span> · venció el 6 nov</span></span><span class="fila__quien">Paola Ruiz</span><a class="btn btn--chico" href="#fichas">Abrir</a></li></ul></div>
+      <div class="tarjeta seccion"><h2 style="border:0;padding:0">Ficha</h2><dl class="ficha"><div><dt class="etiqueta">Cliente</dt><dd>Cliente Demo</dd></div><div><dt class="etiqueta">Ubicación</dt><dd>Mixco, Guatemala</dd></div></dl>
+        <ul class="actividad" style="margin-top:var(--space-4)"><li>Diego Ortiz registró la emisión V04<time>Hoy, 11:20</time></li><li>Paola Ruiz marcó hecho el paso 2<time>Ayer, 16:45</time></li></ul></div>
+    </div>
+  </section>
+
+  <section id="plano">
+    <h2>Planos y emisiones</h2>
+    <h3>Línea de versiones</h3>
+    <ol class="versiones"><li class="version"><span class="version__num">V01</span><span class="version__fecha">12OCT26</span><span class="chip chip--acento">RECIBIDO</span></li><li class="version version--anulada"><span class="version__num">V02</span><span class="version__fecha">30OCT26</span><span class="chip chip--grave">ANULADO</span></li><li class="version version--actual" aria-current="true"><span class="version__num">V03</span><span class="version__fecha">09NOV26</span><span class="chip">ENVIADO</span></li></ol>
+    <h3>Archivo con huella</h3>
+    <div class="archivo"><span class="etiqueta">PDF</span><span><span class="archivo__nombre">DEMOPX_CONRED_ARQ_PLANTA_CONJUNTO_V04_09NOV26_ENVIADO.pdf</span><br><span class="hash mono">Huella SHA-256: 3fa9d2…7bc21e</span></span><span class="seccion__acciones"><button class="btn-icono" type="button" aria-label="Copiar nombre del PDF"><span data-icono="copiar"></span></button><a class="btn btn--chico" href="#plano">Abrir</a></span></div>
+  </section>
+
+  <section id="tiempo">
+    <h2>Tiempo y avance</h2>
+    <div class="ds__muestra ds__muestra--col">
+      <p class="leyenda"><span>Programado a hoy</span><span class="leyenda--real">Avance real</span></p>
+      <div class="doble"><div class="doble__linea"><span>Edificio Demo Plaza</span><div class="avance"><span class="avance__barra" style="width:62%"></span></div><span class="doble__num">62%</span></div><div class="doble__linea"><span></span><div class="avance"><span class="avance__barra avance__barra--real" style="width:58%"></span></div><span class="doble__num">58%</span></div></div>
+    </div>
+    <p class="ds__nota">Morado = programado; azul = avance real. El cronograma completo (Gantt) usa los mismos colores y una línea roja para «hoy».</p>
+  </section>
+
+  <section id="capas-ui">
+    <h2>Capas y diálogos</h2>
+    <div class="ds__muestra"><dialog class="dialogo" open style="position:static;margin:0"><div class="dialogo__caja"><h2 class="dialogo__titulo" style="border:0;padding:0">¿Desactivar a Diego Ortiz?</h2><ul><li>Pierde el acceso de inmediato.</li><li>Sus registros siguen a su nombre.</li></ul><div class="acciones"><button class="btn" type="button">Cancelar</button><button class="btn btn--grave" type="button">Desactivar</button></div></div></dialog></div>
+  </section>
+</div>
+
+</div>
+<script src="js/iconos.js"></script>
+<script src="js/datos.js"></script>
+<script src="js/tema.js"></script>
+<script src="js/marco.js"></script>
+<script src="js/estado.js"></script>
+<script src="js/maqueta.js"></script>
+<script src="js/comportamientos.js"></script>
+<script src="js/app.js"></script>
+<script src="js/ds.js"></script>
+</body>
+</html>

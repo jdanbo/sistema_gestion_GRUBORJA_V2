@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es-GT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Mi cuenta · GRUBORJA (prototipo v2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/componentes.css">
+<link rel="stylesheet" href="../css/patrones.css">
+<link rel="stylesheet" href="../css/shell.css">
+<link rel="stylesheet" href="../css/responsive.css">
+<link rel="stylesheet" href="../css/maqueta.css">
+</head>
+<body data-pantalla="9 · Mi cuenta" data-marco="mas" data-roles="gerencia|equipo|soporte" data-estados="normal:Normal|guardado:Contraseña cambiada|error:Contraseña actual incorrecta" data-vista="cuenta">
+<aside class="maq-barra" id="maq-barra" aria-label="Herramientas de la maqueta" data-raiz="../"></aside>
+<div class="app" id="app">
+<div id="marco-slot"></div>
+
+  <main class="pagina pagina--angosta">
+    <p class="pagina__atras"><a class="enlace-flecha enlace-flecha--atras" href="00-mas.html"><span data-icono="atras"></span> Más</a></p>
+    <div class="pagina__titulo"><h1 class="titulo-seccion">Mi <em>cuenta</em></h1></div>
+
+    <div class="aviso aviso--ok" role="status" data-si-estado="guardado">
+      <h2>Contraseña cambiada</h2>
+      <p>Quedó registrado <span data-f="cuando">hoy, 9 nov 2026 a las 16:52</span>. Las demás sesiones abiertas se cerraron.</p>
+    </div>
+
+    <section class="tarjeta seccion">
+      <h2>Mis datos</h2>
+      <dl class="datos">
+        <div><dt class="etiqueta">Nombre</dt><dd data-persona="nombre"></dd></div>
+        <div><dt class="etiqueta">Puesto</dt><dd data-persona="puesto"></dd></div>
+        <div><dt class="etiqueta">Rol</dt><dd><span class="tag" data-rol-nombre></span></dd></div>
+      </dl>
+      <p class="bloqueo" style="margin-top:1rem"><span data-icono="candado"></span> Tu nombre, correo, puesto y rol los cambia Gerencia, para que el historial sea consistente.</p>
+    </section>
+
+    <section class="tarjeta seccion">
+      <h2>Cambiar contraseña</h2>
+      <form novalidate>
+        <label class="campo">
+          <span class="campo__etiqueta">Contraseña actual</span>
+          <input class="campo__entrada" type="password" autocomplete="current-password" data-invalido-si="error">
+          <span class="campo__error" role="alert" data-si-estado="error">La contraseña actual no coincide.</span>
+        </label>
+        <div class="formulario__dos">
+          <label class="campo">
+            <span class="campo__etiqueta">Contraseña nueva</span>
+            <input class="campo__entrada" type="password" autocomplete="new-password">
+            <span class="campo__ayuda">Al menos 10 caracteres, con letras y números.</span>
+          </label>
+          <label class="campo">
+            <span class="campo__etiqueta">Repite la contraseña nueva</span>
+            <input class="campo__entrada" type="password" autocomplete="new-password">
+          </label>
+        </div>
+        <div class="acciones"><button class="btn btn--primario" type="submit">Cambiar contraseña</button></div>
+      </form>
+    </section>
+
+    <section class="tarjeta seccion">
+      <h2>Tema</h2>
+      <p class="tenue">Se guarda en este dispositivo.</p>
+      <div class="pills" role="group" aria-label="Tema">
+        <button class="pill" type="button" aria-pressed="true">Como el sistema</button>
+        <button class="pill" type="button" aria-pressed="false">Claro</button>
+        <button class="pill" type="button" aria-pressed="false">Marino</button>
+      </div>
+    </section>
+
+    <section class="tarjeta seccion">
+      <h2>Sesión</h2>
+      <p class="tenue">Último ingreso: <span data-f="ultimo">hoy, 9 nov 2026 a las 08:12</span>.</p>
+      <div class="acciones acciones--izq"><a class="btn" href="01-ingreso.html">Cerrar sesión</a></div>
+    </section>
+  </main>
+</div>
+<script src="../js/iconos.js"></script>
+<script src="../js/datos.js"></script>
+<script src="../js/tema.js"></script>
+<script src="../js/marco.js"></script>
+<script src="../js/aviso.js"></script>
+<script src="../js/db.js"></script>
+<script src="../js/estado.js"></script>
+<script src="../js/maqueta.js"></script>
+<script src="../js/comportamientos.js"></script>
+<script src="../js/vistas/acceso.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>

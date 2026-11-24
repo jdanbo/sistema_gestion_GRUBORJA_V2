@@ -1,0 +1,102 @@
+/* =====================================================================
+   responsive.css · Ajustes para celular (menos de 768 px de ancho de la app).
+   En el teléfono se ve lo necesario para actuar en obra; el detalle queda a un toque.
+   ===================================================================== */
+
+.filtros-fila::after { display: none; }
+
+
+@container app (max-width: 767px) {
+  .pagina { padding-top: var(--space-5); }
+  h1 { font-size: 1.625rem; }
+  .tarjeta { padding: var(--space-4); }
+
+  /* La acción principal ocupa todo el ancho: se alcanza con el pulgar */
+  .pagina__titulo > .btn, .pagina__titulo > .seccion__acciones, .pagina__titulo > .seccion__acciones .btn,
+  .proyecto-cab > .btn, .seccion__cabecera > .btn--primario, .seccion__cabecera > .seccion__acciones .btn--primario { flex: 1 1 100%; }
+  .seccion__cabecera > .seccion__acciones:has(.btn--primario) { flex: 1 1 100%; }
+  .seccion__cabecera > .seccion__acciones .btn { flex: 1 1 auto; }
+  .acciones { flex-direction: column-reverse; }
+  .acciones .btn { width: 100%; }
+  .acciones--izq { flex-direction: column; }
+
+  /* Filtros: queda la búsqueda; los demás se abren aparte */
+  .filtros-fila .campo:not(:first-child) { display: none; }
+  .filtros-fila::after {
+    content: "Más filtros"; display: inline-flex; align-items: center; justify-content: center;
+    min-height: var(--tactil); margin-bottom: var(--space-3); padding: 0 1rem; border: 1px solid var(--line-campo); border-radius: var(--radius-pill);
+    font: 500 .875rem/1 var(--font-sans); color: var(--ink); background: var(--surface); width: max-content;
+  }
+
+  /* Tablas como tarjetas cortas: título arriba, solo los datos que sirven en obra */
+  .tabla td[data-label="N.º"], .tabla td[data-label="Contratista"], .tabla td[data-label="Fecha contratada"],
+  .tabla td[data-label="Institución"], .tabla td[data-label="Disciplina"], .tabla td[data-label="Uso"],
+  .tabla td[data-label="Área"], .tabla td[data-label="Último ingreso"], .tabla td[data-label="Por"],
+  .tabla td[data-label="Visitas"], .tabla td[data-label="En uso"], .tabla td[data-label="Programado"] { display: none; }
+  .tabla td[data-label="Hito"], .tabla td[data-label="CUP"], .tabla td[data-label="Proyecto"], .tabla td[data-label="Tema"],
+  .tabla td[data-label="Comentario"], .tabla td[data-label="Paso"], .tabla td[data-label="Título"], .tabla td[data-label="Etapa"],
+  .tabla td[data-label="Nombre"], .tabla td[data-label="Cuándo avisa"], .tabla td[data-label=""] { display: block; text-align: left; }
+  .tabla td[data-label="Hito"]::before, .tabla td[data-label="CUP"]::before, .tabla td[data-label="Proyecto"]::before, .tabla td[data-label="Tema"]::before,
+  .tabla td[data-label="Comentario"]::before, .tabla td[data-label="Paso"]::before, .tabla td[data-label="Título"]::before, .tabla td[data-label="Etapa"]::before,
+  .tabla td[data-label="Nombre"]::before, .tabla td[data-label="Cuándo avisa"]::before, .tabla td[data-label=""]::before { display: none; }
+  .tabla td[data-label="Hito"], .tabla td[data-label="Paso"], .tabla td[data-label="Comentario"], .tabla td[data-label="Etapa"] { font-weight: 600; color: var(--ink); font-size: 1rem; }
+  .tabla td[data-label=""] .btn { width: 100%; margin-top: var(--space-2); }
+  .tabla tr.fila-fase { padding: var(--space-2) 0 0; border: 0; background: none; margin-bottom: var(--space-2); }
+  .tabla tr.fila-fase td { display: block; background: none; text-align: left; padding: 0; }
+  .avance-celda { min-width: 9rem; }
+
+  /* Pasos y planos: la casilla grande a la izquierda, para marcar con un toque */
+  .tabla tr:has(> td[data-label="Hecho"]) { display: grid; grid-template-columns: 48px minmax(0, 1fr); column-gap: var(--space-2); align-items: start; }
+  .tabla tr:has(> td[data-label="Hecho"]) > td { grid-column: 2; }
+  .tabla tr:has(> td[data-label="Hecho"]) > td[data-label="Hecho"] { grid-column: 1; grid-row: 1 / span 6; display: block; padding: 0; }
+  .tabla td[data-label="Hecho"]::before { display: none; }
+  .casilla__marca { width: 1.75rem; height: 1.75rem; }
+
+  /* Filas de pendientes: toda la fila se lee de arriba abajo; el botón sobra porque el título ya abre */
+  .fila { padding: var(--space-3) 0; }
+  .fila > .btn--chico { display: none; }
+  .fila__titulo { display: inline-flex; align-items: center; min-height: var(--tactil); font-size: 1rem; }
+  .fila .chip { justify-self: start; }
+
+  .doble__linea { grid-template-columns: 6.5rem 1fr 2.75rem; }
+  .mini-barras .doble__linea { grid-template-columns: 6.5rem 1fr 2.75rem; }
+  .cifra { padding: var(--space-3); }
+  .cifra__numero { font-size: 1.5rem; }
+  .plano-cab__cup { font-size: 1.25rem; overflow-wrap: anywhere; }
+  .version { flex-basis: 7rem; }
+  .emision__acciones .btn, .emision__acciones .emision__estado, .emision__acciones select { width: 100%; }
+  .emision__fecha { margin-left: 0; flex-basis: 100%; }
+  .persona-bloque__cuenta { margin-left: 0; flex-basis: 100%; }
+  .papel { padding: var(--space-4); }
+  .pasos-inicio li { grid-template-columns: 2.5rem 1fr; }
+  .pasos-inicio li .btn { grid-column: 1 / -1; }
+  .gantt::before { content: "Desliza hacia los lados para ver los meses →"; display: block; font-size: .8125rem; color: var(--text-muted); margin-bottom: var(--space-2); }
+  .gantt__fila { grid-template-columns: 9.5rem 1fr; }
+  .gantt__nombre { position: sticky; left: 0; z-index: 2; background: var(--surface); }
+  .gantt__fila--fase .gantt__nombre { background: var(--surface-soft); }
+}
+
+/* Minutas: el tema ya es una caja; sus filas no repiten la caja (#17) */
+@container app (max-width: 959px) {
+  .tema .tabla tr { margin: 0; padding: var(--space-3) var(--space-4); border-width: 0 0 1px; background: transparent; }
+  .tema .tabla tr:last-child { border-bottom: 0; }
+}
+
+/* Teléfonos muy angostos (320 px): la cabecera del cliente no se desborda */
+@container app (max-width: 359px) {
+  .marco__barra { gap: var(--space-1); padding-left: var(--space-3); padding-right: var(--space-3); }
+  .marco__logo .logo { height: 1.25rem; }
+  .marco__barra .btn--chico { padding-left: .75rem; padding-right: .75rem; }
+  .marco__barra > .marco__cuenta .marco__iniciales { display: none; }
+}
+
+/* Imprimir todo en PDF: solo se ve el documento armado */
+#imprimible { display: none; }
+@media print {
+  body.imprimiendo > *:not(#imprimible) { display: none !important; }
+  body.imprimiendo #imprimible { display: block; color: #000; background: #fff; font: 11pt/1.4 system-ui, sans-serif; padding: 0; }
+  #imprimible h1 { font-size: 18pt; margin: 0 0 .25rem; } #imprimible h2 { font-size: 13pt; margin: 1.25rem 0 .4rem; }
+  #imprimible table { width: 100%; border-collapse: collapse; font-size: 9.5pt; } #imprimible th, #imprimible td { border: 1px solid #999; padding: 3px 6px; text-align: left; }
+  #imprimible tr { break-inside: avoid; }
+}
+.proyecto-cab__lado { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es-GT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Olvidé mi contraseña · GRUBORJA (prototipo v2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/componentes.css">
+<link rel="stylesheet" href="../css/patrones.css">
+<link rel="stylesheet" href="../css/shell.css">
+<link rel="stylesheet" href="../css/responsive.css">
+<link rel="stylesheet" href="../css/maqueta.css">
+</head>
+<body data-pantalla="2 · Olvidé mi contraseña" data-estados="normal:Normal|enviado:Enlace enviado" data-vista="olvide">
+<aside class="maq-barra" id="maq-barra" aria-label="Herramientas de la maqueta" data-raiz="../"></aside>
+<div class="app" id="app">
+<div id="marco-slot"></div>
+
+  <main class="login">
+    <button class="tema-btn login__tema" type="button"></button>
+    <div class="login__marca">
+      <img class="logo logo--claro login__logo" src="../img/logo-claro.png" alt="GRUBORJA">
+      <img class="logo logo--marino login__logo" src="../img/logo-marino.png" alt="GRUBORJA">
+      <p class="login__sub etiqueta">Sistema de gestión</p>
+    </div>
+    <section class="tarjeta login__caja" data-si-estado="normal">
+      <h1 class="titulo-seccion">Restablecer <em>contraseña</em></h1>
+      <p>Escribe el correo con el que entras. Te enviaremos un enlace para crear una contraseña nueva.</p>
+      <form novalidate>
+        <label class="campo">
+          <span class="campo__etiqueta">Correo</span>
+          <input class="campo__entrada" type="email" autocomplete="username">
+        </label>
+        <button class="btn btn--primario btn--bloque" type="submit">Enviar enlace</button>
+      </form>
+      <p><a class="enlace-flecha enlace-flecha--atras" href="01-ingreso.html"><span data-icono="atras"></span> Volver a iniciar sesión</a></p>
+    </section>
+
+    <!-- La respuesta es la misma exista o no la cuenta -->
+    <section class="tarjeta login__caja" data-si-estado="enviado">
+      <h1 class="titulo-seccion">Revisa tu <em>correo</em></h1>
+      <p>Si <span class="mono" data-f="correo">mariana@demo.test</span> tiene una cuenta, en unos minutos recibirá un enlace para crear una contraseña nueva.</p>
+      <p class="tenue">El enlace sirve una sola vez y caduca en 1 hora. Si no llega, revisa el correo no deseado.</p>
+      <a class="btn btn--bloque" href="01-ingreso.html">Volver a iniciar sesión</a>
+    </section>
+  </main>
+</div>
+<script src="../js/iconos.js"></script>
+<script src="../js/datos.js"></script>
+<script src="../js/tema.js"></script>
+<script src="../js/marco.js"></script>
+<script src="../js/aviso.js"></script>
+<script src="../js/db.js"></script>
+<script src="../js/estado.js"></script>
+<script src="../js/maqueta.js"></script>
+<script src="../js/comportamientos.js"></script>
+<script src="../js/vistas/acceso.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>

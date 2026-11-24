@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es-GT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Nuevo proyecto · GRUBORJA (prototipo v2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/componentes.css">
+<link rel="stylesheet" href="../css/patrones.css">
+<link rel="stylesheet" href="../css/shell.css">
+<link rel="stylesheet" href="../css/responsive.css">
+<link rel="stylesheet" href="../css/maqueta.css">
+</head>
+<body data-pantalla="7 · Nuevo proyecto" data-marco="proyectos" data-roles="gerencia|soporte|equipo" data-vista="proyecto-nuevo">
+<aside class="maq-barra" id="maq-barra" aria-label="Herramientas de la maqueta" data-raiz="../"></aside>
+<div class="app" id="app">
+<div id="marco-slot"></div>
+
+  <main class="pagina pagina--angosta">
+    <p class="pagina__atras"><a class="enlace-flecha enlace-flecha--atras" href="06-proyectos.html"><span data-icono="atras"></span> Proyectos</a></p>
+
+    <section class="tarjeta vacio" data-si-rol="equipo">
+      <h1 class="titulo-seccion" style="display:inline-block">Nuevo proyecto</h1>
+      <p class="bloqueo" style="justify-content:center"><span data-icono="candado"></span> Los proyectos los crea Gerencia.</p>
+      <p style="margin-top:1rem"><a class="btn" href="06-proyectos.html">Volver a Proyectos</a></p>
+    </section>
+
+    <div data-si-rol="gerencia soporte">
+      <div class="pagina__titulo"><h1 class="titulo-seccion">Nuevo <em>proyecto</em></h1></div>
+      <form class="tarjeta formulario" id="form-proyecto" novalidate>
+        <p class="tenue">El proyecto se da de alta una sola vez. De él cuelgan sus hitos, planos y minutas.</p>
+        <label class="campo">
+          <span class="campo__etiqueta">Nombre del proyecto</span>
+          <input class="campo__entrada" name="nombre" autocomplete="off" placeholder="Ej. Oficinas Demo Tec"><span class="campo__error" role="alert" id="error-nombre" hidden>Escribe el nombre del proyecto.</span>
+        </label>
+        <div class="formulario__dos">
+          <label class="campo">
+            <span class="campo__etiqueta">Código</span>
+            <input class="campo__entrada mono" name="codigo" autocomplete="off" maxlength="8">
+            <span class="campo__error" role="alert" id="error-codigo" hidden></span>
+            <span class="campo__ayuda">De 2 a 8 letras mayúsculas o números. Lo propusimos desde el nombre; puedes cambiarlo ahora.</span>
+          </label>
+          <label class="campo">
+            <span class="campo__etiqueta">Cliente</span>
+            <select class="campo__entrada" name="cliente"></select>
+          </label>
+        </div>
+        <div class="vista-previa">
+          <span class="etiqueta">Así se verán sus planos</span>
+          <span class="vista-previa__valor mono" id="cup-previo">CODIGO-CONAR-001</span>
+          <p class="bloqueo"><span data-icono="candado"></span> Después de crear el proyecto, el código ya no se puede cambiar: forma parte del CUP de cada plano.</p>
+        </div>
+        <fieldset class="grupo">
+          <legend class="etiqueta">Ubicación de la obra</legend>
+          <div class="formulario__dos">
+            <label class="campo"><span class="campo__etiqueta">País</span><select class="campo__entrada"><option>Guatemala</option></select></label>
+            <label class="campo"><span class="campo__etiqueta">Departamento</span><select class="campo__entrada" name="depto"><option>Guatemala</option><option>Escuintla</option><option>Sacatepéquez</option></select></label>
+            <label class="campo"><span class="campo__etiqueta">Municipio</span><select class="campo__entrada" name="municipio"><option>Mixco</option><option>Guatemala</option><option>Villa Nueva</option></select></label>
+            <label class="campo"><span class="campo__etiqueta">Dirección <span class="campo__opcional">opcional</span></span><input class="campo__entrada" name="direccion" autocomplete="off"></label>
+          </div>
+        </fieldset>
+        <p class="tenue pequeno">El enlace de la carpeta de Drive se agrega después, en la ficha del proyecto.</p>
+        <div class="acciones">
+          <a class="btn" href="06-proyectos.html">Cancelar</a>
+          <button class="btn btn--primario" type="submit">Crear proyecto</button>
+        </div>
+      </form>
+    </div>
+  </main>
+</div>
+<script src="../js/iconos.js"></script>
+<script src="../js/datos.js"></script>
+<script src="../js/tema.js"></script>
+<script src="../js/marco.js"></script>
+<script src="../js/db.js"></script>
+<script src="../js/estado.js"></script>
+<script src="../js/maqueta.js"></script>
+<script src="../js/comportamientos.js"></script>
+<script src="../js/vistas/proyectos.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>

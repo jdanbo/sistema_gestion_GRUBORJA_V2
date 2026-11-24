@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es-GT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Activar cuenta · GRUBORJA (prototipo v2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/componentes.css">
+<link rel="stylesheet" href="../css/patrones.css">
+<link rel="stylesheet" href="../css/shell.css">
+<link rel="stylesheet" href="../css/responsive.css">
+<link rel="stylesheet" href="../css/maqueta.css">
+</head>
+<body data-pantalla="3 · Activar cuenta" data-estados="invitacion:Invitación válida|restablecer:Restablecer|debil:Contraseña débil|vencido:Enlace vencido|usado:Enlace ya usado" data-vista="activar">
+<aside class="maq-barra" id="maq-barra" aria-label="Herramientas de la maqueta" data-raiz="../"></aside>
+<div class="app" id="app">
+<div id="marco-slot"></div>
+
+  <main class="login">
+    <button class="tema-btn login__tema" type="button"></button>
+    <div class="login__marca">
+      <img class="logo logo--claro login__logo" src="../img/logo-claro.png" alt="GRUBORJA">
+      <img class="logo logo--marino login__logo" src="../img/logo-marino.png" alt="GRUBORJA">
+      <p class="login__sub etiqueta">Sistema de gestión</p>
+    </div>
+    <section class="tarjeta login__caja" data-si-estado="invitacion restablecer debil">
+      <h1 class="titulo-seccion" data-si-estado="invitacion debil">Activa tu <em>cuenta</em></h1>
+      <h1 class="titulo-seccion" data-si-estado="restablecer">Nueva <em>contraseña</em></h1>
+
+      <div data-si-estado="invitacion debil">
+        <p>Hola, <strong data-f="nombre">Ana Morales</strong>. <span data-f="por">Mariana Solís</span> te invitó al sistema de gestión de GRUBORJA.</p>
+        <dl class="datos">
+          <div><dt class="etiqueta">Correo</dt><dd class="mono pequeno" data-f="correo">ana@demo.test</dd></div>
+          <div><dt class="etiqueta">Puesto</dt><dd data-f="puesto">Arquitecta de proyectos</dd></div>
+          <div><dt class="etiqueta">Rol</dt><dd><span class="tag" data-f="rol">Equipo</span></dd></div>
+        </dl>
+        <p class="tenue pequeno">Crea tu contraseña para entrar. Todo lo que hagas quedará registrado a tu nombre.</p>
+      </div>
+      <p data-si-estado="restablecer">Crea una contraseña nueva para <span class="mono" data-f="correo2">mariana@demo.test</span>.</p>
+
+      <form novalidate>
+        <label class="campo">
+          <span class="campo__etiqueta">Contraseña nueva</span>
+          <input class="campo__entrada" type="password" autocomplete="new-password" value="demo" data-invalido-si="debil">
+        </label>
+        <ul class="requisitos" data-si-estado="invitacion restablecer">
+          <li><span data-icono="punto"></span> Al menos 10 caracteres</li>
+          <li><span data-icono="punto"></span> Letras y números</li>
+        </ul>
+        <ul class="requisitos" data-si-estado="debil">
+          <li><span data-icono="punto"></span> Al menos 10 caracteres (llevas 4)</li>
+          <li class="cumple"><span data-icono="ok"></span> Letras y números</li>
+        </ul>
+        <p class="campo__error" role="alert" data-si-estado="debil">La contraseña es muy corta. Usa al menos 10 caracteres.</p>
+        <button class="btn btn--primario btn--bloque" type="submit" data-si-estado="invitacion debil">Activar y entrar</button>
+        <button class="btn btn--primario btn--bloque" type="submit" data-si-estado="restablecer">Guardar contraseña</button>
+      </form>
+    </section>
+
+    <section class="tarjeta login__caja" data-si-estado="vencido">
+      <h1 class="titulo-seccion">El enlace <em>venció</em></h1>
+      <p>Las invitaciones caducan a los 7 días y los enlaces para restablecer, en 1 hora.</p>
+      <p><strong>Si te invitaron:</strong> pide a Gerencia que reenvíe la invitación.<br><strong>Si olvidaste tu contraseña:</strong> pide un enlace nuevo.</p>
+      <a class="btn btn--primario btn--bloque" href="02-olvide.html">Pedir un enlace nuevo</a>
+    </section>
+
+    <section class="tarjeta login__caja" data-si-estado="usado">
+      <h1 class="titulo-seccion">Este enlace ya se <em>usó</em></h1>
+      <p>Cada enlace sirve una sola vez. Si ya creaste tu contraseña, inicia sesión.</p>
+      <a class="btn btn--primario btn--bloque" href="01-ingreso.html">Iniciar sesión</a>
+      <p><a class="enlace-flecha" href="02-olvide.html">No fui yo, quiero un enlace nuevo <span data-icono="flecha"></span></a></p>
+    </section>
+  </main>
+</div>
+<script src="../js/iconos.js"></script>
+<script src="../js/datos.js"></script>
+<script src="../js/tema.js"></script>
+<script src="../js/marco.js"></script>
+<script src="../js/aviso.js"></script>
+<script src="../js/db.js"></script>
+<script src="../js/estado.js"></script>
+<script src="../js/maqueta.js"></script>
+<script src="../js/comportamientos.js"></script>
+<script src="../js/vistas/acceso.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>
